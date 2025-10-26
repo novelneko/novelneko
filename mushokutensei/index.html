@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mushoku Tensei - NovelFR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* Main content - CENTRÉ */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    /* Header avec cover et infos - CENTRÉ */
+    .novel-header {
+      display: flex;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .novel-cover {
+      flex-shrink: 0;
+    }
+
+    .novel-cover img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .novel-cover img:hover {
+      transform: scale(1.05);
+    }
+
+    .novel-info {
+      flex: 1;
+    }
+
+    .novel-info h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .novel-info .credits {
+      color: #a1a1aa;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Section des tomes */
+    .tomes-section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .tomes-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .tomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .tome-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tome-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .tome-card span {
+      color: #fff;
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 1rem;
+      }
+
+      .novel-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .novel-cover img {
+        width: 200px;
+      }
+
+      .tomes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <section class="novel-header">
+      <div class="novel-cover">
+        <img src="../images/mushokutensei.jpg" alt="Mushoku Tensei">
+      </div>
+      <div class="novel-info">
+        <h1>Mushoku Tensei – Réincarnation dans un autre monde</h1>
+        <div class="credits">
+          <strong>Traducteur :</strong> Admin | NovelDeGlace<br>
+          <strong>Statut :</strong> Terminé<br>
+          <strong>Correspondance :</strong> Saison 2 Épisode 24 -> Volume 13
+        </div>
+        <div class="back-btn" data-url="../index.html">← Retour à l'accueil</div>
+      </div>
+    </section>
+
+    <section class="tomes-section">
+      <h2>📚 Tomes disponibles</h2>
+      <div class="tomes-grid">
+        <div class="tome-card" data-url="mushokutome/tome1.html">
+          <span>📗 Tome 1</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome2.html">
+          <span>📗 Tome 2</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome3.html">
+          <span>📗 Tome 3</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome4.html">
+          <span>📗 Tome 4</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome5.html">
+          <span>📗 Tome 5</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome6.html">
+          <span>📗 Tome 6</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome7.html">
+          <span>📗 Tome 7</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome8.html">
+          <span>📗 Tome 8</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome9.html">
+          <span>📗 Tome 9</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome10.html">
+          <span>📗 Tome 10</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome11.html">
+          <span>📗 Tome 11</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome12.html">
+          <span>📗 Tome 12</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome13.html">
+          <span>📗 Tome 13</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome14.html">
+          <span>📗 Tome 14</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome15.html">
+          <span>📗 Tome 15</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome16.html">
+          <span>📗 Tome 16</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome17.html">
+          <span>📗 Tome 17</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome18.html">
+          <span>📗 Tome 18</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome19.html">
+          <span>📗 Tome 19</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome20.html">
+          <span>📗 Tome 20</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome21.html">
+          <span>📗 Tome 21</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome22.html">
+          <span>📗 Tome 22</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome23.html">
+          <span>📗 Tome 23</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome24.html">
+          <span>📗 Tome 24</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome25.html">
+          <span>📗 Tome 25</span>
+        </div>
+        <div class="tome-card" data-url="mushokutome/tome26.html">
+          <span>📗 Tome 26</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-url]').forEach(element => {
+      element.addEventListener('click', function(e) {
+        e.preventDefault();
+        const url = this.getAttribute('data-url');
+        if (url && url !== '#') {
+          window.location.href = url;
+        }
+      });
+      element.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>

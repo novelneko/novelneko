@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovelFR</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 220px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .sidebar h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .translator-card {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 0;
+      text-decoration: none;
+      color: #a1a1aa;
+      cursor: pointer;
+    }
+
+    .translator-card img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #333;
+    }
+
+    .translator-card span {
+      font-size: 0.9rem;
+    }
+
+    .translator-card span.username {
+      color: #fff;
+      font-weight: 600;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 2rem 2rem 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .main-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .novel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .novel-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      color: #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .novel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .novel-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background: #1a1a1a;
+      pointer-events: none;
+    }
+
+    .novel-card-content {
+      padding: 0.8rem;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .novel-card-content h3,
+    .novel-card-content h4 {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      color: #fff;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .novel-card-content p {
+      font-size: 0.75rem;
+      color: #a1a1aa;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 1rem;
+      }
+
+      .novel-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .novel-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+
+      .novel-card img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h3>Translators:</h3>
+    <div class="translator-card">
+      <img src="images/ppza.jpg" alt="Admin">
+      <div>
+        <span class="username">admin</span><br>
+        <span style="color: #6366f1; font-size: 0.8rem;">#mtispeak</span>
+      </div>
+    </div>
+    <div class="translator-card">
+      <img src="images/noveldeglace.jpg" alt="NovelDeGlace">
+      <span class="username">NovelDeGlace</span>
+    </div>
+    <div class="translator-card">
+      <img src="images/jgarden.jpg" alt="J-Garden">
+      <span class="username">J-Garden</span>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <h2>Novels</h2>
+    <div class="novel-grid">
+      <div class="novel-card" data-url="mushokutensei/index.html">
+        <img src="images/mushokutensei.jpg" alt="Mushoku Tensei">
+        <div class="novel-card-content">
+          <h3>Mushoku Tensei</h3>
+          <p>26 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="redundant/index.html">
+        <img src="images/rudundant.jpg" alt="Mushoku Tensei - Redundant Reincarnation">
+        <div class="novel-card-content">
+          <h3>Mushoku Tensei - Redundancy</h3>
+          <p>3 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="rezero/index.html">
+        <img src="images/rezero.jpg" alt="rezero">
+        <div class="novel-card-content">
+          <h3>Re:Zero</h3>
+          <p>2 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="cote/index.html">
+        <img src="images/cote.jpg" alt="Classroom of the Elite Year 1">
+        <div class="novel-card-content">
+          <h3>COTE Year 1</h3>
+          <p>14 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="cote2/index.html">
+        <img src="images/cote2.jpg" alt="Classroom of the Elite Year 2">
+        <div class="novel-card-content">
+          <h3>COTE Year 2</h3>
+          <p>18 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="cote3/index.html">
+        <img src="images/cote3.jpg" alt="Classroom of the Elite Year 3">
+        <div class="novel-card-content">
+          <h3>COTE Year 3</h3>
+          <p>2 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="danmachi/index.html">
+        <img src="images/danmachi.jpg" alt="danmachi">
+        <div class="novel-card-content">
+          <h3>DanMachi</h3>
+          <p>5 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="rascal/index.html">
+        <img src="images/rascal.jpg" alt="Rascal Does">
+        <div class="novel-card-content">
+          <h3>Rascal Does Not Dream of Bunny Girl Senpai</h3>
+          <p>7 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="violet/index.html">
+        <img src="images/violet.jpg" alt="violet evergarden">
+        <div class="novel-card-content">
+          <h3>Violet Evergarden</h3>
+          <p>5 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="shadow/index.html">
+        <img src="images/shadow.jpg" alt="shadow">
+        <div class="novel-card-content">
+          <h3>The Eminence in Shadow</h3>
+          <p>6 Volumes</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="silentwitch/index.html">
+        <img src="images/silentwitch.jpg" alt="silentwitchWN">
+        <div class="novel-card-content">
+          <h3>Silent Witch</h3>
+          <p>1 Volume</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="silentwitchoff/index.html">
+        <img src="images/silentwitchspinoff.jpg" alt="gaidenwitch">
+        <div class="novel-card-content">
+          <h3>Silent Witch - Gaiden</h3>
+          <p>1 Volume</p>
+        </div>
+      </div>
+      <div class="novel-card" data-url="sworddemonhunter/index.html">
+        <img src="images/sworddemonhunter.jpg" alt="sworddemonhunter">
+        <div class="novel-card-content">
+          <h3>Sword of the Demon Hunter</h3>
+          <p>1 Volume</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll('.novel-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const url = this.getAttribute('data-url');
+        if (url && url !== '#') {
+          window.location.href = url;
+        }
+      });
+      
+      card.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>
